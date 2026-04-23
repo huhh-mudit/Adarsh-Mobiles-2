@@ -268,10 +268,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-bg-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   animation: kenBurns 25s ease-in-out infinite alternate;
+  z-index: 0;
 }
 
 @keyframes kenBurns {
@@ -280,34 +283,25 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-bg-placeholder {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
   background: transparent;
-  position: relative;
   overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-bg-pattern {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 18% 45%, rgba(0, 194, 255, 0.22), transparent 60%),
-    radial-gradient(ellipse 65% 60% at 82% 28%, rgba(124, 58, 237, 0.22), transparent 60%),
-    radial-gradient(ellipse 55% 55% at 50% 85%, rgba(224, 64, 160, 0.18), transparent 60%);
+    radial-gradient(ellipse 70% 55% at 18% 45%, rgba(0, 194, 255, 0.28), transparent 60%),
+    radial-gradient(ellipse 65% 60% at 82% 28%, rgba(124, 58, 237, 0.28), transparent 60%),
+    radial-gradient(ellipse 55% 55% at 50% 85%, rgba(224, 64, 160, 0.22), transparent 60%);
   animation: patternDrift 20s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
   filter: blur(8px);
-}
-
-.hero-bg-placeholder::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask: radial-gradient(ellipse at center, #000 20%, transparent 75%);
-          mask: radial-gradient(ellipse at center, #000 20%, transparent 75%);
-  pointer-events: none;
 }
 
 @keyframes patternDrift {
@@ -320,7 +314,8 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(8,8,13,0.4) 0%, rgba(8,8,13,0.2) 40%, rgba(8,8,13,0.7) 100%);
+    linear-gradient(180deg, rgba(8,8,13,0.55) 0%, rgba(8,8,13,0.35) 40%, rgba(8,8,13,0.85) 100%),
+    radial-gradient(ellipse at center, rgba(8,8,13,0.15) 0%, rgba(8,8,13,0.55) 100%);
 }
 
 .hero-content {
